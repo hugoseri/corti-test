@@ -81,4 +81,24 @@ fetch('http://localhost:8010/api/v1/tree');
 
 ## Your notes
 
-...
+The assignment is well explained, very easy to understand and the scope seems reasonable for a 4 hours timeslot.
+
+I spent exactly 4 hours on it as requested.
+
+My approach was the following:
+1. Explore the repository, understand the requirements, the initial codebase
+2. Choose the dependencies I'd like to use and make a first basic layout and project architecture
+3. Implement all user stories, one by one
+4. Document my work and enhance layout
+
+Further improvements:
+- Improve the UI (it is very basic here)
+- Store state in the URL for better UX (easy to bookmark/share a given folder)
+- Add a searchbar and filters (might need more backend as frontend only search might become very unefficient)
+- Suggest multiple views (as in the macOS finder)
+- Add tests
+- Handle data caching (with tanstack query for example, might be even more useful if search/filters were added)
+- Add more interactivity (animations...)
+- Improve a11y
+- Handle responsive design
+- Add a linter + formatter
