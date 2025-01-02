@@ -1,4 +1,8 @@
+import { Theme } from '@radix-ui/themes';
 import { useEffect } from 'react';
+import { Topbar } from './components/topbar';
+import { Sidebar } from './components/sidebar';
+import { Main } from './components/main';
 
 export function App() {
   // Do not hesitate to refactor this effect or use a different library to retrieve data
@@ -9,5 +13,15 @@ export function App() {
       .then(console.log);
   }, []);
 
-  return <h1>Corti Frontend Home Assignment</h1>;
+  return (
+    <Theme>
+      <div className='flex flex-col h-dvh w-dvw max-w-full max-h-screen'>
+        <Topbar/>
+        <div className='flex flex-row overflow-y-auto'>
+          <Sidebar/>
+          <Main/>
+        </div>
+      </div>
+    </Theme>
+  );
 }
