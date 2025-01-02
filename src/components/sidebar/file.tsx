@@ -44,6 +44,18 @@ export const File: React.FC<FileProps> = ({
         }
     }, [isActive])
 
+    /**
+     * Listen to activeFile to expand if the activeFile is among current file children
+     */
+    useEffect(() => {
+        if (activeFile) {
+            const someChildIsActive = children.some(child => child.id === activeFile.id);
+            if (someChildIsActive) {
+                setIsExpanded(true);
+            }
+        }
+    }, [activeFile])
+
     return (
         <li>
             <Button 

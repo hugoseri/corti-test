@@ -22,7 +22,7 @@ export const Folder: React.FC<FolderProps> = ({
             <h1 className="font-bold text-lg">{data.name}</h1>
             <div className="grid grid-cols-4 gap-10">
                 {children.map(file => (
-                    <File data={file} iconSize="small"/>
+                    <File key={file.id} data={file} iconSize="small"/>
                 ))}
             </div>
         </div>

@@ -18,9 +18,7 @@ export const FilesContext = createContext<FilesContextType>(initialFilesContext)
  */
 export const FilesProvider: React.FC<PropsWithChildren> = ({children}) => {
     const [activeFile, setActiveFile] = useState<FileRo | undefined>();
-    /**
-     * Display app content when user is connected
-     */
+    
     return (
         <FilesContext.Provider value={{
             activeFile,
