@@ -6,6 +6,7 @@ import { Main } from './components/main';
 import axios, { AxiosError } from 'axios';
 import { EFileType, FileRo, TreeRo } from './utils/types';
 import { generateRandomId } from './utils/randomId';
+import FilesProvider from './contexts/files';
 
 export function App() {
   const [data, setData] = useState<FileRo[]>([]);
@@ -42,13 +43,15 @@ export function App() {
 
   return (
     <Theme>
-      <div className='flex flex-col h-dvh w-dvw max-w-full max-h-screen'>
-        <Topbar/>
-        <div className='flex flex-row overflow-y-auto'>
-          <Sidebar data={data}/>
-          <Main/>
+        <div className='flex flex-col h-dvh w-dvw max-w-full max-h-screen'>
+          <Topbar/>
+          <div className='flex flex-row overflow-y-auto'>
+            <FilesProvider>
+              <Sidebar data={data}/>
+              <Main/>
+            </FilesProvider>
+          </div>
         </div>
-      </div>
     </Theme>
   );
 }
