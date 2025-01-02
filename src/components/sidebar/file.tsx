@@ -12,11 +12,11 @@ export const File: React.FC<FileProps> = ({
     data,
 }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const { activeFileId, setActiveFileId } = useContext(FilesContext);
+    const { activeFile, setActiveFile } = useContext(FilesContext);
 
     const isActive = useMemo(() => {
-        return data.id === activeFileId;
-    }, [activeFileId])
+        return data.id === activeFile?.id;
+    }, [activeFile?.id])
 
     const isFolder = useMemo(() => {
         return data.type === EFileType.folder;
@@ -32,8 +32,8 @@ export const File: React.FC<FileProps> = ({
 
     const handleClick = useCallback(() => {
         setIsExpanded(old => !old);
-        setActiveFileId(data.id);
-    }, [data.id, isExpanded, activeFileId, setIsExpanded, setActiveFileId])
+        setActiveFile(data);
+    }, [data.id, isExpanded, activeFile, setIsExpanded, setActiveFile])
 
     return (
         <li>

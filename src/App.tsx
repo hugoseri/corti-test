@@ -45,7 +45,7 @@ export function App() {
     <Theme>
         <div className='flex flex-col h-dvh w-dvw max-w-full max-h-screen'>
           <Topbar/>
-          <div className='flex flex-row overflow-y-auto'>
+          <div className='flex flex-row overflow-y-auto h-full'>
             <FilesProvider>
               <Sidebar data={data}/>
               <Main/>
