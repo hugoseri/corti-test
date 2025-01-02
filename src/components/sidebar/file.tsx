@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useState } from "react"
+import { useCallback, useContext, useEffect, useMemo, useState } from "react"
 import { FileRo, EFileType } from "../../utils/types"
 import { Play } from "lucide-react"
 import { Button } from "@radix-ui/themes"
@@ -34,6 +34,15 @@ export const File: React.FC<FileProps> = ({
         setIsExpanded(old => !old);
         setActiveFile(data);
     }, [data.id, isExpanded, activeFile, setIsExpanded, setActiveFile])
+
+    /**
+     * Listen to isActive to expand file automatically
+     */
+    useEffect(() => {
+        if (isActive) {
+            setIsExpanded(true);
+        }
+    }, [isActive])
 
     return (
         <li>
